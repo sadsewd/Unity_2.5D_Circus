@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using static UnityEditor.PlayerSettings;
-using UnityEngine.TextCore.Text;
+
 public class SaveLoadScript : MonoBehaviour
 {
     public string saveFileName = "saveFile.json";
