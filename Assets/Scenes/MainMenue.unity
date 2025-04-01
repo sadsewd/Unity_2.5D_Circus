@@ -11988,8 +11988,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 1502995617}
+  qualityDropdown: {fileID: 1359526715}
   volumeSlider: {fileID: 1422340159}
   Mixer: {fileID: 24100000, guid: a5598e0d97755604690bfc0d753d8e6a, type: 2}
+  fullscreenToggle: {fileID: 196276428}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -6,15 +6,9 @@ using UnityEngine.Audio;
 public class PauseMenuScript : MonoBehaviour
 {
     public AudioMixer audioMixer;
-    private float volume;
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public SceneChangeScript sceneChangeScript;
-
-    private void Awake()
-    {
-        volume = PlayerPrefs.GetFloat("volume", 1f);
-    }
 
     void Update()
     {
@@ -36,7 +30,8 @@ public class PauseMenuScript : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        audioMixer.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
+        Debug.Log("MasterVolume: " + PlayerPrefs.GetFloat("Volume"));
 
     }
 
