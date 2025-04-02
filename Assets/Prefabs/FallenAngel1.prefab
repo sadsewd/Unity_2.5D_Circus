@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 4242650457891821769}
   - component: {fileID: 3388476343409763193}
   - component: {fileID: 4034501998149329943}
+  - component: {fileID: -8014930404348610295}
   m_Layer: 0
   m_Name: FallenAngel1
   m_TagString: Untagged
@@ -291,3 +292,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa16b761ebc4e046886a2d7d394e4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8014930404348610295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817051091777506130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3774bfa59b7c91c45a42e9f317285605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 200

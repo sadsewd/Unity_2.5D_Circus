@@ -18,7 +18,6 @@ public class RolledNumberScript : MonoBehaviour
         if(diceRollScript != null)
         {
             if (diceRollScript.isLanded) rolledNumberText.text = diceRollScript.diceFaceNum;
-            else rolledNumberText.text = "?";
         }else Debug.LogError("DiceRollScript not found in scene!");
     }
 }
