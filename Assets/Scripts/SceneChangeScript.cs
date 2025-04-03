@@ -18,20 +18,22 @@ public class SceneChangeScript : MonoBehaviour
         {
             yield return fadeScript.FadeOut(0.1f);
             PlayerPrefs.DeleteAll();
-            //if (UnityEditor.EditorApplication.isPlaying)
-            //    UnityEditor.EditorApplication.isPlaying = false;
-            //else
-                Application.Quit();
+            Application.Quit();
         } else if (string.Equals(command, "play", System.StringComparison.OrdinalIgnoreCase)){
             yield return fadeScript.FadeOut(0.1f);
             saveLoadScript.SaveGame(character, name);
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
+        else if (string.Equals(command, "menu", System.StringComparison.OrdinalIgnoreCase))
+        {
+            yield return fadeScript.FadeOut(0.1f);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        }
     }
 
     public IEnumerator DelayMainMenu()
     {
-            yield return fadeScript.FadeOut(0.1f);
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+        yield return fadeScript.FadeOut(0.1f);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }

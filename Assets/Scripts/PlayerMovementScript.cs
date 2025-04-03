@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private List<Transform> pathCells;
     public int currentCellIndex = 0;
     public Boolean finished = false;
+    public Boolean isMoving = false;
     private Animator animator;
-
+    public int moves = 0;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentCellIndex != 63)
         {
+            isMoving = true;
             animator.SetBool("isWalking", true);
             if (targetIndex > 63)
             {
@@ -69,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             animator.SetBool("isWalking", false);
+            isMoving = false;
             if (targetIndex == 63)
             {
                 finished = true;
@@ -87,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
     }
 
 }

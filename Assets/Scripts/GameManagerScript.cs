@@ -17,7 +17,9 @@ public class GameManagerScript : MonoBehaviour
     private bool isGameFinished = false;
     PlayerMovement currentPlayer;
     TextMeshPro playerNameText;
-
+    public string winnerName;
+    public int winnerMoves;
+ 
     private Dictionary<int, int> laddersAndSlides = new Dictionary<int, int>
     {
         { 19, 12 },
@@ -57,22 +59,35 @@ public class GameManagerScript : MonoBehaviour
             currentPlayerTextField.text = playerNameText.text;
             if (!string.IsNullOrEmpty(diceRollScript.diceFaceNum) && diceRollScript.isLanded)
             {
-                Move();
-                diceRollScript.Initialize(1);
+                if(currentPlayerIndex > 0)
+                {
+                    if (!players[currentPlayerIndex - 1].isMoving)
+                    {
+                        Move();
+                        diceRollScript.Initialize(1);
+                    }
+                }
+                else
+                {
+                    Move();
+                    diceRollScript.Initialize(1);
+                }
+
             }
-            foreach (var player in players)
+            foreach (var player in players)//Nav nepieciešams cikliski pārbaudīt vai kāds no visiem ir uzvarējis
             {
                 if (player.finished)
                 {
                     if (endScreen != null)
                     {
-
-
                         Transform winnerTextObj = endScreen.transform.Find("Winner");
                         TextMeshProUGUI textComponent = winnerTextObj.GetComponent<TextMeshProUGUI>();
-                        textComponent.text = "Player " + playerNameText.text + " has finished!";
+                        playerNameText = player.GetComponentInChildren<TextMeshPro>();
+                        textComponent.text = "Player " + playerNameText.text + " has finished first!";
                         isGameFinished = true;
                         endScreen.SetActive(true);
+                        winnerName = playerNameText.text;
+                        winnerMoves = player.moves;
                     }
                     else Debug.Log("End screen not assigned.");
                 }
@@ -84,6 +99,7 @@ public class GameManagerScript : MonoBehaviour
     public void Move()
     {
         PlayerMovement currentPlayer = players[currentPlayerIndex];
+        currentPlayer.moves++;
         StartCoroutine(MoveAndCheckSnakesLadders(currentPlayer));
         currentPlayerIndex = (currentPlayerIndex + 1) % players.Count; //Nākamais spēlētajs
     }
