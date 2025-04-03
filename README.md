@@ -11,7 +11,9 @@ Unity 2.5d Circus project, demonstrates how to use UI elements and animate them.
 - [x] Create character selection screen
 - [x] Learn about player prefs and saving in json
 - [x] Write script for dice rolling
-      // Continue to write to do list when you start development on your own
+
+## Dev to-do list
+
 - [x] Make game settings
 - [x] Make Circus game logic
 - [x] Make game settings save
