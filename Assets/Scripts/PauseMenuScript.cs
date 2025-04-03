@@ -31,8 +31,6 @@ public class PauseMenuScript : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("Volume")) * 20);
-        Debug.Log("MasterVolume: " + PlayerPrefs.GetFloat("Volume"));
-
     }
 
     void Pause()

@@ -304,4 +304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3774bfa59b7c91c45a42e9f317285605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 200
+  moveSpeed: 50
+  currentCellIndex: 0
+  finished: 0
